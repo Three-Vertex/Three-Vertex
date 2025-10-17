@@ -1,0 +1,435 @@
+---
+---
+
+<section class="hero">
+    <div class="viewport-background"></div>
+    <div class="container">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Share in <span class="gradient-text">3D</span>
+            </h1>
+            <p class="hero-subtitle">
+                A web first 3D-based space designed for modern creators for collaboration
+            </p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary btn-large">Start Collab</a>
+                <a href="#about" class="btn-secondary btn-large">Model Viewer</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="cube-container">
+                <div class="animated-cube">
+                    <div class="cube-face front"></div>
+                    <div class="cube-face back"></div>
+                    <div class="cube-face right"></div>
+                    <div class="cube-face left"></div>
+                    <div class="cube-face top"></div>
+                    <div class="cube-face bottom"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero {
+        padding: 10rem 0 6rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-title {
+        font-size: 4.5rem;
+        font-weight: 800;
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        line-height: 1.8;
+    }
+
+    .hero-buttons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    /* 3D Animated Cube */
+    .hero-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+
+    /* 3D Viewport Background - Full screen coverage */
+    .viewport-background {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: calc(100% + 20rem);
+        background: 
+            linear-gradient(90deg, rgba(249, 115, 22, 0.08) 1px, transparent 1px),
+            linear-gradient(rgba(249, 115, 22, 0.08) 1px, transparent 1px);
+        background-size: 50px 50px, 50px 50px;
+        pointer-events: none;
+        z-index: 0;
+        mask-image: 
+            linear-gradient(to right,
+                transparent 0%,
+                rgba(0, 0, 0, 0.2) 35%,
+                rgba(0, 0, 0, 0.5) 50%,
+                rgba(0, 0, 0, 0.8) 65%,
+                rgba(0, 0, 0, 1) 75%,
+                rgba(0, 0, 0, 0.8) 90%,
+                transparent 100%
+            ),
+            linear-gradient(to bottom,
+                transparent 0%,
+                rgba(0, 0, 0, 0.3) 10%,
+                rgba(0, 0, 0, 0.8) 25%,
+                rgba(0, 0, 0, 1) 40%,
+                rgba(0, 0, 0, 1) 60%,
+                rgba(0, 0, 0, 0.8) 75%,
+                rgba(0, 0, 0, 0.5) 85%,
+                transparent 100%
+            );
+        mask-composite: intersect;
+        -webkit-mask-image: 
+            linear-gradient(to right,
+                transparent 0%,
+                rgba(0, 0, 0, 0.2) 35%,
+                rgba(0, 0, 0, 0.5) 50%,
+                rgba(0, 0, 0, 0.8) 65%,
+                rgba(0, 0, 0, 1) 75%,
+                rgba(0, 0, 0, 0.8) 90%,
+                transparent 100%
+            ),
+            linear-gradient(to bottom,
+                transparent 0%,
+                rgba(0, 0, 0, 0.3) 10%,
+                rgba(0, 0, 0, 0.8) 25%,
+                rgba(0, 0, 0, 1) 40%,
+                rgba(0, 0, 0, 1) 60%,
+                rgba(0, 0, 0, 0.8) 75%,
+                rgba(0, 0, 0, 0.5) 85%,
+                transparent 100%
+            );
+        -webkit-mask-composite: source-in;
+    }
+
+    .viewport-background::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: 
+            radial-gradient(
+                ellipse at 70% 50%,
+                rgba(249, 115, 22, 0.04) 0%,
+                rgba(249, 115, 22, 0.02) 30%,
+                transparent 60%
+            );
+        pointer-events: none;
+    }
+
+    .cube-container {
+        perspective: 1200px;
+        width: 200px;
+        height: 200px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .animated-cube {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: cubeRotate 20s infinite linear;
+    }
+
+    .cube-face {
+        position: absolute;
+        width: 140px;
+        height: 140px;
+        left: 50%;
+        top: 50%;
+        margin-left: -70px;
+        margin-top: -70px;
+        background: rgba(249, 115, 22, 0.05);
+        border: 2px solid rgba(249, 115, 22, 0.8);
+        box-shadow: 
+            0 0 20px rgba(249, 115, 22, 0.4),
+            inset 0 0 20px rgba(249, 115, 22, 0.1);
+        transform-style: preserve-3d;
+    }
+
+    /* Position faces to form cube initially */
+    .cube-face.front {
+        animation: animateFront 12s ease-in-out infinite;
+    }
+
+    .cube-face.back {
+        animation: animateBack 12s ease-in-out infinite;
+    }
+
+    .cube-face.right {
+        animation: animateRight 12s ease-in-out infinite;
+    }
+
+    .cube-face.left {
+        animation: animateLeft 12s ease-in-out infinite;
+    }
+
+    .cube-face.top {
+        animation: animateTop 12s ease-in-out infinite;
+    }
+
+    .cube-face.bottom {
+        animation: animateBottom 12s ease-in-out infinite;
+    }
+
+    /* Front face animation */
+    @keyframes animateFront {
+        0%, 100% {
+            transform: rotateY(0deg) translateZ(70px);
+        }
+        25% {
+            transform: rotateY(180deg) translateZ(150px) rotateX(45deg);
+        }
+        50% {
+            transform: rotateY(360deg) translateZ(70px);
+        }
+        75% {
+            transform: rotateY(180deg) translateZ(150px) rotateX(-45deg);
+        }
+    }
+
+    /* Back face animation */
+    @keyframes animateBack {
+        0%, 100% {
+            transform: rotateY(180deg) translateZ(70px);
+        }
+        25% {
+            transform: rotateY(360deg) translateZ(150px) rotateX(-45deg);
+        }
+        50% {
+            transform: rotateY(180deg) translateZ(70px);
+        }
+        75% {
+            transform: rotateY(0deg) translateZ(150px) rotateX(45deg);
+        }
+    }
+
+    /* Right face animation */
+    @keyframes animateRight {
+        0%, 100% {
+            transform: rotateY(90deg) translateZ(70px);
+        }
+        25% {
+            transform: rotateY(90deg) translateZ(150px) rotateZ(90deg);
+        }
+        50% {
+            transform: rotateY(90deg) translateZ(70px);
+        }
+        75% {
+            transform: rotateY(90deg) translateZ(150px) rotateZ(-90deg);
+        }
+    }
+
+    /* Left face animation */
+    @keyframes animateLeft {
+        0%, 100% {
+            transform: rotateY(-90deg) translateZ(70px);
+        }
+        25% {
+            transform: rotateY(-90deg) translateZ(150px) rotateZ(-90deg);
+        }
+        50% {
+            transform: rotateY(-90deg) translateZ(70px);
+        }
+        75% {
+            transform: rotateY(-90deg) translateZ(150px) rotateZ(90deg);
+        }
+    }
+
+    /* Top face animation */
+    @keyframes animateTop {
+        0%, 100% {
+            transform: rotateX(90deg) translateZ(70px);
+        }
+        25% {
+            transform: rotateX(90deg) translateZ(150px) rotateY(90deg);
+        }
+        50% {
+            transform: rotateX(90deg) translateZ(70px);
+        }
+        75% {
+            transform: rotateX(90deg) translateZ(150px) rotateY(-90deg);
+        }
+    }
+
+    /* Bottom face animation */
+    @keyframes animateBottom {
+        0%, 100% {
+            transform: rotateX(-90deg) translateZ(70px);
+        }
+        25% {
+            transform: rotateX(-90deg) translateZ(150px) rotateY(-90deg);
+        }
+        50% {
+            transform: rotateX(-90deg) translateZ(70px);
+        }
+        75% {
+            transform: rotateX(-90deg) translateZ(150px) rotateY(90deg);
+        }
+    }
+
+    /* Overall cube rotation */
+    @keyframes cubeRotate {
+        from { 
+            transform: rotateX(20deg) rotateY(0deg); 
+        }
+        to { 
+            transform: rotateX(20deg) rotateY(360deg); 
+        }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 968px) {
+        .hero {
+            padding: 5.5rem 0 3rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 14rem;
+        }
+
+        .hero .container {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 8rem;
+        }
+
+        .hero-content {
+            order: 1;
+        }
+
+        .hero-visual {
+            order: 2;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-buttons {
+            justify-content: center;
+            margin-bottom: 0;
+        }
+
+        .viewport-background {
+            height: calc(100% + 10rem);
+            background-size: 40px 40px, 40px 40px;
+        }
+
+        .viewport-background::before {
+            background: 
+                radial-gradient(
+                    ellipse at 65% 50%,
+                    rgba(249, 115, 22, 0.03) 0%,
+                    rgba(249, 115, 22, 0.01) 30%,
+                    transparent 60%
+                );
+        }
+
+        .cube-container {
+            width: 140px;
+            height: 140px;
+        }
+
+        .cube-face {
+            width: 100px;
+            height: 100px;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .hero {
+            padding: 5rem 0 2rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: flex-start;
+            padding-top: 11rem;
+        }
+
+        .hero .container {
+            gap: 7rem;
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-subtitle {
+            margin-bottom: 1.25rem;
+        }
+
+        .hero-buttons {
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .viewport-background {
+            height: 100%;
+            background-size: 30px 30px, 30px 30px;
+        }
+
+        .viewport-background::before {
+            background: 
+                radial-gradient(
+                    ellipse at 60% 50%,
+                    rgba(249, 115, 22, 0.02) 0%,
+                    rgba(249, 115, 22, 0.01) 30%,
+                    transparent 60%
+                );
+        }
+
+        .cube-container {
+            width: 140px;
+            height: 140px;
+        }
+
+        .cube-face {
+            width: 100px;
+            height: 100px;
+            margin-left: -50px;
+            margin-top: -50px;
+        }
+    }
+</style>
+

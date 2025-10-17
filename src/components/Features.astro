@@ -1,0 +1,123 @@
+---
+---
+
+<section id="features" class="features">
+    <div class="container">
+        <svg width="0" height="0" style="position: absolute;">
+            <defs>
+                <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#c2410c;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+        </svg>
+        <h2 class="section-title">Key Domains</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                        <path d="M2 17l10 5 10-5"/>
+                        <path d="M2 12l10 5 10-5"/>
+                    </svg>
+                </div>
+                <h3>3D</h3>
+                <p>Advanced 3D visualization & collaboration tools for immersive experiences</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/>
+                        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>
+                        <circle cx="12" cy="17" r="0.5" fill="url(#iconGradient)"/>
+                        <circle cx="12" cy="12" r="1" fill="none"/>
+                        <path d="M8 8l8 8M16 8l-8 8"/>
+                    </svg>
+                </div>
+                <h3>Artificial Intelligence</h3>
+                <p>Intelligent AI automation and machine learning capabilities</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2"/>
+                        <path d="M8 21h8"/>
+                        <path d="M12 17v4"/>
+                        <path d="M7 8h10M7 12h10"/>
+                    </svg>
+                </div>
+                <h3>Web First</h3>
+                <p>Modern web technologies for seamless cross-platform integration</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .features {
+        padding: 6rem 0;
+        background: var(--bg-secondary);
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .feature-card {
+        padding: 2.5rem;
+        background: var(--bg-tertiary);
+        border-radius: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        transition: transform 0.3s ease, border-color 0.3s ease;
+        text-align: center;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(249, 115, 22, 0.5);
+    }
+
+    .feature-icon {
+        width: 3.5rem;
+        height: 3.5rem;
+        margin: 0 auto 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .feature-icon svg {
+        width: 100%;
+        height: 100%;
+        stroke: url(#iconGradient);
+    }
+
+    .feature-icon svg path,
+    .feature-icon svg circle,
+    .feature-icon svg rect {
+        stroke: url(#iconGradient);
+    }
+
+    .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .feature-card p {
+        color: var(--text-secondary);
+        line-height: 1.8;
+    }
+
+    @media (max-width: 968px) {
+        .features-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+

@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About - Template" description="Learn more about Template and our mission">
+    <section class="page-section">
+        <div class="container">
+            <h1 class="page-title">About <span class="gradient-text">Template</span></h1>
+            <div class="content">
+                <p>
+                    Template is a cutting-edge 3D project tool designed to empower creators 
+                    with intuitive controls and powerful features.
+                </p>
+                <p>
+                    Our mission is to make 3D creation accessible to everyone, from beginners 
+                    to professional designers.
+                </p>
+            </div>
+        </div>
+    </section>
+</Layout>
+
+<style>
+    .page-section {
+        padding: 10rem 0 6rem;
+        min-height: 80vh;
+    }
+
+    .page-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        margin-bottom: 3rem;
+        text-align: center;
+    }
+
+    .content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .content p {
+        font-size: 1.25rem;
+        line-height: 1.8;
+        color: var(--text-secondary);
+        margin-bottom: 1.5rem;
+    }
+
+    @media (max-width: 968px) {
+        .page-title {
+            font-size: 2.5rem;
+        }
+
+        .content p {
+            font-size: 1.1rem;
+        }
+    }
+</style>
+

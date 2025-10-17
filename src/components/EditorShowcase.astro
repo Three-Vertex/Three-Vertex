@@ -1,0 +1,1004 @@
+---
+---
+
+<section class="editor-showcase">
+    <div class="container">
+        <div class="editor-window">
+            <!-- Window Header -->
+            <div class="window-header">
+                <div class="window-controls">
+                    <span class="control close"></span>
+                    <span class="control minimize"></span>
+                    <span class="control maximize"></span>
+                </div>
+                <div class="window-title">
+                    <img class="window-title-icon" src="/public/favicon.png"/>
+                    <span>ThreeVertex Editor - model.obj</span>
+                </div>
+                <div class="window-actions">
+                    <button class="action-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v6m8.66-13.66l-4.24 4.24m-4.24 4.24l-4.24 4.24M23 12h-6m-6 0H1m20.66 8.66l-4.24-4.24m-4.24-4.24l-4.24-4.24"/>
+                        </svg>
+                    </button>
+                    <button class="action-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V9z"/>
+                            <polyline points="13 2 13 9 20 9"/>
+                        </svg>
+                    </button>
+                    <button class="action-btn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Editor Content -->
+            <div class="editor-content">
+                <!-- Sidebar -->
+                <div class="sidebar">
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Scene</div>
+                        <div class="sidebar-item active">
+                            <span class="icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/>
+                                </svg>
+                            </span>
+                            <span>Model_01</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="5"/>
+                                    <line x1="12" y1="1" x2="12" y2="3"/>
+                                    <line x1="12" y1="21" x2="12" y2="23"/>
+                                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                    <line x1="1" y1="12" x2="3" y2="12"/>
+                                    <line x1="21" y1="12" x2="23" y2="12"/>
+                                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                                </svg>
+                            </span>
+                            <span>Light</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/>
+                                    <circle cx="12" cy="13" r="4"/>
+                                </svg>
+                            </span>
+                            <span>Camera</span>
+                        </div>
+                    </div>
+                    <div class="sidebar-section">
+                        <div class="sidebar-title">Properties</div>
+                        <div class="property">
+                            <span>Position</span>
+                            <div class="property-values">
+                                <span class="value">X: 0.0</span>
+                                <span class="value">Y: 0.0</span>
+                                <span class="value">Z: 0.0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Viewport -->
+                <div class="viewport">
+                    <div class="viewport-controls">
+                        <button class="view-btn active">Perspective</button>
+                        <button class="view-btn">Top</button>
+                        <button class="view-btn">Front</button>
+                        <button class="view-btn">Right</button>
+                    </div>
+                    
+                    <!-- 3D Model Display Area -->
+                    <div class="model-viewer">
+                        <div class="grid-backdrop"></div>
+                        
+                        <!-- Animated 3D Shape - Hexagonal Prism -->
+                        <div class="model-container">
+                            <div class="model-shape">
+                                <!-- 6 rectangular side faces -->
+                                <div class="shape-face side-face face-1"></div>
+                                <div class="shape-face side-face face-2"></div>
+                                <div class="shape-face side-face face-3"></div>
+                                <div class="shape-face side-face face-4"></div>
+                                <div class="shape-face side-face face-5"></div>
+                                <div class="shape-face side-face face-6"></div>
+                            </div>
+                        </div>
+
+                        <!-- Axis Indicator -->
+                        <div class="axis-indicator">
+                            <div class="axis axis-x">X</div>
+                            <div class="axis axis-y">Y</div>
+                            <div class="axis axis-z">Z</div>
+                        </div>
+
+                        <!-- Stats Overlay -->
+                        <div class="stats-overlay">
+                            <div class="stat">Vertices: 12</div>
+                            <div class="stat">Faces: 6</div>
+                            <div class="stat">FPS: 60</div>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Toolbar -->
+                    <div class="bottom-toolbar">
+                        <div class="toolbar-section">
+                            <button class="tool-btn active">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/>
+                                </svg>
+                                <span>Select</span>
+                            </button>
+                            <button class="tool-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="5 9 2 12 5 15"/>
+                                    <polyline points="9 5 12 2 15 5"/>
+                                    <polyline points="15 19 12 22 9 19"/>
+                                    <polyline points="19 9 22 12 19 15"/>
+                                    <line x1="2" y1="12" x2="22" y2="12"/>
+                                    <line x1="12" y1="2" x2="12" y2="22"/>
+                                </svg>
+                                <span>Move</span>
+                            </button>
+                            <button class="tool-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0118.8-4.3M22 12.5a10 10 0 01-18.8 4.2"/>
+                                </svg>
+                                <span>Rotate</span>
+                            </button>
+                            <button class="tool-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 3L9 15"/>
+                                    <path d="M12 3h9v9"/>
+                                    <path d="M3 12v9h9"/>
+                                </svg>
+                                <span>Scale</span>
+                            </button>
+                        </div>
+                        <div class="toolbar-section">
+                            <span class="zoom-level">Zoom: 100%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Panel -->
+                <div class="right-panel">
+                    <div class="panel-section">
+                        <div class="panel-title">Materials</div>
+                        <div class="material-preview"></div>
+                        <div class="material-options">
+                            <div class="option">
+                                <span>Color</span>
+                                <div class="color-picker"></div>
+                            </div>
+                            <div class="option">
+                                <span>Metallic</span>
+                                <div class="slider">
+                                    <div class="slider-fill" style="width: 60%"></div>
+                                </div>
+                            </div>
+                            <div class="option">
+                                <span>Roughness</span>
+                                <div class="slider">
+                                    <div class="slider-fill" style="width: 40%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="view-model-container">
+            <a href="#" class="btn-view-model">
+                <span>View Model</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    .editor-showcase {
+        position: relative;
+        padding: 0 0 8rem 0;
+        margin-top: -3rem;
+        z-index: 10;
+    }
+
+    .container {
+        max-width: 1400px;
+    }
+
+    .editor-window {
+        background: rgba(20, 20, 20, 0.95);
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 
+            0 20px 60px rgba(0, 0, 0, 0.5),
+            0 0 0 1px rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(20px);
+        animation: slideUp 1s ease-out;
+    }
+
+    @keyframes slideUp {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Window Header */
+    .window-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 1.5rem;
+        background: rgba(10, 10, 10, 0.8);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .window-controls {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .control {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: block;
+    }
+
+    .control.close { background: #ff5f56; }
+    .control.minimize { background: #ffbd2e; }
+    .control.maximize { background: #27c93f; }
+
+    .window-title {
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+
+    .window-title-icon {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+    }
+
+    .window-title span {
+        line-height: 1;
+    }
+
+    .window-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .action-btn {
+        background: rgba(255, 255, 255, 0.05);
+        border: none;
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .action-btn svg {
+        width: 1rem;
+        height: 1rem;
+        color: var(--text-secondary);
+    }
+
+    .action-btn:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .action-btn:hover svg {
+        color: var(--text-primary);
+    }
+
+    /* Editor Content */
+    .editor-content {
+        display: grid;
+        grid-template-columns: 220px 1fr 240px;
+        height: 650px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+        background: rgba(10, 10, 10, 0.5);
+        padding: 1rem;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        overflow-y: auto;
+    }
+
+    .sidebar-section {
+        margin-bottom: 2rem;
+    }
+
+    .sidebar-title {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+    }
+
+    .sidebar-item {
+        padding: 0.5rem;
+        border-radius: 0.5rem;
+        margin-bottom: 0.25rem;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .sidebar-item .icon {
+        width: 1rem;
+        height: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sidebar-item .icon svg {
+        width: 100%;
+        height: 100%;
+        color: var(--text-secondary);
+    }
+
+    .sidebar-item:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    .sidebar-item.active {
+        background: rgba(249, 115, 22, 0.15);
+        color: var(--accent-primary);
+    }
+
+    .sidebar-item.active .icon svg {
+        color: var(--accent-primary);
+    }
+
+    .property {
+        margin-bottom: 1rem;
+        font-size: 0.85rem;
+    }
+
+    .property-values {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+        margin-top: 0.5rem;
+    }
+
+    .value {
+        color: var(--text-secondary);
+        font-family: monospace;
+        font-size: 0.8rem;
+    }
+
+    /* Viewport */
+    .viewport {
+        display: flex;
+        flex-direction: column;
+        background: rgba(5, 5, 5, 0.5);
+    }
+
+    .viewport-controls {
+        display: flex;
+        gap: 0.5rem;
+        padding: 0.75rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .view-btn {
+        padding: 0.5rem 1rem;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 0.85rem;
+    }
+
+    .view-btn:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .view-btn.active {
+        background: var(--gradient);
+        border-color: transparent;
+        color: var(--text-primary);
+    }
+
+    /* Model Viewer */
+    .model-viewer {
+        position: relative;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .grid-backdrop {
+        position: absolute;
+        inset: 0;
+        background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+        0% {
+            background-position: 0 0;
+        }
+        100% {
+            background-position: 50px 50px;
+        }
+    }
+
+    /* 3D Model Shape */
+    .model-container {
+        perspective: 1200px;
+        width: 300px;
+        height: 300px;
+    }
+
+    .model-shape {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        transform-style: preserve-3d;
+        animation: modelRotate 15s infinite ease-in-out;
+    }
+
+    @keyframes modelRotate {
+        0%, 100% {
+            transform: rotateX(20deg) rotateY(0deg) rotateZ(0deg);
+        }
+        25% {
+            transform: rotateX(20deg) rotateY(90deg) rotateZ(10deg);
+        }
+        50% {
+            transform: rotateX(20deg) rotateY(180deg) rotateZ(0deg);
+        }
+        75% {
+            transform: rotateX(20deg) rotateY(270deg) rotateZ(-10deg);
+        }
+    }
+
+    .shape-face {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+    }
+
+    /* Rectangular side faces */
+    .side-face {
+        width: 110px;
+        height: 140px;
+        margin-left: -55px;
+        margin-top: -70px;
+        background: linear-gradient(135deg, rgba(249, 115, 22, 0.25), rgba(194, 65, 12, 0.15));
+        border: 2px solid rgba(249, 115, 22, 0.6);
+        backdrop-filter: blur(10px);
+        box-shadow: 
+            inset 0 0 30px rgba(249, 115, 22, 0.1),
+            0 0 20px rgba(249, 115, 22, 0.2);
+    }
+
+    /* Hexagonal end caps */
+    .hex-face {
+        width: 110px;
+        height: 95px;
+        margin-left: -55px;
+        margin-top: -47.5px;
+        background: linear-gradient(135deg, rgba(249, 115, 22, 0.3), rgba(194, 65, 12, 0.2));
+        clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+        border: 2px solid rgba(249, 115, 22, 0.7);
+        backdrop-filter: blur(10px);
+        box-shadow: 
+            inset 0 0 30px rgba(249, 115, 22, 0.15),
+            0 0 25px rgba(249, 115, 22, 0.25);
+    }
+
+    /* 6 side faces positioned around hexagon */
+    .face-1 {
+        transform: rotateY(0deg) translateZ(95px);
+        animation: pulse 3s ease-in-out infinite;
+    }
+
+    .face-2 {
+        transform: rotateY(60deg) translateZ(95px);
+        animation: pulse 3s ease-in-out infinite 0.5s;
+    }
+
+    .face-3 {
+        transform: rotateY(120deg) translateZ(95px);
+        animation: pulse 3s ease-in-out infinite 1s;
+    }
+
+    .face-4 {
+        transform: rotateY(180deg) translateZ(95px);
+        animation: pulse 3s ease-in-out infinite 1.5s;
+    }
+
+    .face-5 {
+        transform: rotateY(240deg) translateZ(95px);
+        animation: pulse 3s ease-in-out infinite 2s;
+    }
+
+    .face-6 {
+        transform: rotateY(300deg) translateZ(95px);
+        animation: pulse 3s ease-in-out infinite 2.5s;
+    }
+
+    /* Top and bottom hexagonal faces */
+    .face-top {
+        transform: rotateX(90deg) translateZ(70px);
+        animation: pulse 3s ease-in-out infinite 0.25s;
+    }
+
+    .face-bottom {
+        transform: rotateX(-90deg) translateZ(70px);
+        animation: pulse 3s ease-in-out infinite 0.75s;
+    }
+
+    @keyframes pulse {
+        0%, 100% {
+            opacity: 0.5;
+            box-shadow: 
+                inset 0 0 30px rgba(249, 115, 22, 0.1),
+                0 0 20px rgba(249, 115, 22, 0.2);
+        }
+        50% {
+            opacity: 0.8;
+            box-shadow: 
+                inset 0 0 40px rgba(249, 115, 22, 0.2),
+                0 0 30px rgba(249, 115, 22, 0.4);
+        }
+    }
+
+    /* Axis Indicator */
+    .axis-indicator {
+        position: absolute;
+        bottom: 2rem;
+        left: 2rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .axis {
+        font-size: 0.75rem;
+        font-weight: 700;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        font-family: monospace;
+    }
+
+    .axis-x {
+        background: rgba(255, 68, 68, 0.2);
+        color: #ff4444;
+        border: 1px solid rgba(255, 68, 68, 0.4);
+    }
+
+    .axis-y {
+        background: rgba(68, 255, 68, 0.2);
+        color: #44ff44;
+        border: 1px solid rgba(68, 255, 68, 0.4);
+    }
+
+    .axis-z {
+        background: rgba(68, 68, 255, 0.2);
+        color: #4444ff;
+        border: 1px solid rgba(68, 68, 255, 0.4);
+    }
+
+    /* Stats Overlay */
+    .stats-overlay {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        font-size: 0.75rem;
+        font-family: monospace;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .stat {
+        color: var(--text-secondary);
+        margin-bottom: 0.25rem;
+    }
+
+    .stat:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Bottom Toolbar */
+    .bottom-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.05);
+        background: rgba(10, 10, 10, 0.5);
+    }
+
+    .toolbar-section {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+
+    .tool-btn {
+        padding: 0.5rem 0.75rem;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.2s;
+        font-size: 0.85rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .tool-btn svg {
+        width: 1rem;
+        height: 1rem;
+        color: var(--text-secondary);
+    }
+
+    .tool-btn:hover {
+        background: rgba(255, 255, 255, 0.05);
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .tool-btn:hover svg {
+        color: var(--text-primary);
+    }
+
+    .tool-btn.active {
+        background: rgba(249, 115, 22, 0.15);
+        border-color: var(--accent-primary);
+        color: var(--accent-primary);
+    }
+
+    .tool-btn.active svg {
+        color: var(--accent-primary);
+    }
+
+    .zoom-level {
+        font-size: 0.85rem;
+        color: var(--text-secondary);
+        font-family: monospace;
+    }
+
+    /* Right Panel */
+    .right-panel {
+        background: rgba(10, 10, 10, 0.5);
+        padding: 1rem;
+        border-left: 1px solid rgba(255, 255, 255, 0.05);
+        overflow-y: auto;
+    }
+
+    .panel-section {
+        margin-bottom: 2rem;
+    }
+
+    .panel-title {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+    }
+
+    .material-preview {
+        width: 100%;
+        height: 120px;
+        background: var(--gradient);
+        border-radius: 0.5rem;
+        margin-bottom: 1rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        animation: materialShine 3s ease-in-out infinite;
+    }
+
+    @keyframes materialShine {
+        0%, 100% {
+            opacity: 0.8;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+
+    .material-options {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .option {
+        font-size: 0.85rem;
+    }
+
+    .option span {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-secondary);
+    }
+
+    .color-picker {
+        width: 100%;
+        height: 32px;
+        background: var(--gradient);
+        border-radius: 0.5rem;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        cursor: pointer;
+    }
+
+    .slider {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 3px;
+        position: relative;
+    }
+
+    .slider-fill {
+        height: 100%;
+        background: var(--gradient);
+        border-radius: 3px;
+        transition: width 0.3s;
+    }
+
+    /* View Model Button */
+    .view-model-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+    }
+
+    .btn-view-model {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1rem 2.5rem;
+        background: linear-gradient(135deg, #f97316 0%, #c2410c 100%);
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border-radius: 0.75rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(249, 115, 22, 0.3);
+    }
+
+    .btn-view-model svg {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+
+    .btn-view-model:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(249, 115, 22, 0.4);
+    }
+
+    .btn-view-model:active {
+        transform: translateY(-1px);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1200px) {
+        .editor-content {
+            grid-template-columns: 180px 1fr 180px;
+            height: 500px;
+        }
+
+        .model-container {
+            width: 200px;
+            height: 200px;
+        }
+
+        .side-face {
+            width: 85px;
+            height: 105px;
+            margin-left: -42.5px;
+            margin-top: -52.5px;
+        }
+
+        .hex-face {
+            width: 85px;
+            height: 73px;
+            margin-left: -42.5px;
+            margin-top: -36.5px;
+        }
+
+        .face-1, .face-2, .face-3, .face-4, .face-5, .face-6 {
+            transform: rotateY(var(--rotation, 0deg)) translateZ(73px);
+        }
+
+        .face-1 { --rotation: 0deg; }
+        .face-2 { --rotation: 60deg; }
+        .face-3 { --rotation: 120deg; }
+        .face-4 { --rotation: 180deg; }
+        .face-5 { --rotation: 240deg; }
+        .face-6 { --rotation: 300deg; }
+
+        .face-top {
+            transform: rotateX(90deg) translateZ(52.5px);
+        }
+
+        .face-bottom {
+            transform: rotateX(-90deg) translateZ(52.5px);
+        }
+    }
+
+    @media (max-width: 968px) {
+        .editor-showcase {
+            margin-top: 0;
+            padding: 2rem 0.25rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .editor-window {
+            height: 90vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .editor-content {
+            grid-template-columns: 1fr;
+            height: 100%;
+            flex: 1;
+        }
+
+        .sidebar,
+        .right-panel {
+            display: none;
+        }
+
+        .viewport {
+            height: 100%;
+            width: 100%;
+        }
+
+        .model-viewer {
+            height: 100%;
+            width: 100%;
+        }
+
+        .model-container {
+            width: 250px;
+            height: 250px;
+        }
+
+        .side-face {
+            width: 100px;
+            height: 125px;
+            margin-left: -50px;
+            margin-top: -62.5px;
+        }
+
+        .face-1, .face-2, .face-3, .face-4, .face-5, .face-6 {
+            transform: rotateY(var(--rotation, 0deg)) translateZ(86px);
+        }
+
+        .view-model-container {
+            display: none;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .editor-showcase {
+            padding: 1.5rem 0.25rem;
+        }
+
+        .container {
+            width: 100%;
+        }
+
+        .editor-window {
+            height: 85vh;
+            width: 100%;
+        }
+
+        .viewport {
+            width: 100%;
+        }
+
+        .model-viewer {
+            width: 100%;
+        }
+
+        .model-container {
+            width: 200px;
+            height: 200px;
+        }
+
+        .side-face {
+            width: 80px;
+            height: 100px;
+            margin-left: -40px;
+            margin-top: -50px;
+        }
+
+        .face-1, .face-2, .face-3, .face-4, .face-5, .face-6 {
+            transform: rotateY(var(--rotation, 0deg)) translateZ(68px);
+        }
+
+        .window-title {
+            display: none;
+        }
+
+        .bottom-toolbar {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 0.5rem;
+        }
+
+        .toolbar-section {
+            gap: 0.25rem;
+        }
+
+        .tool-btn {
+            font-size: 0.7rem;
+            padding: 0.4rem 0.5rem;
+        }
+
+        .tool-btn span {
+            display: none;
+        }
+
+        .tool-btn svg {
+            width: 1rem;
+            height: 1rem;
+        }
+    }
+</style>
+
