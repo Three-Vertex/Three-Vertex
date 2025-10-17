@@ -1,0 +1,31 @@
+    # .github/workflows/deploy.yml
+    name: Deploy Astro to GitHub Pages
+
+    on:
+      push:
+        branches:
+          - master # Or your main branch name
+
+    jobs:
+      build-and-deploy:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Checkout
+            uses: actions/checkout@v4
+
+          - name: Setup Node.js
+            uses: actions/setup-node@v4
+            with:
+              node-version: '20' # Or your desired Node.js version
+
+          - name: Install dependencies
+            run: npm install
+
+          - name: Build Astro site
+            run: npm run build
+
+          - name: Deploy to GitHub Pages
+            uses: peaceiris/actions-gh-pages@v3
+            with:
+              github_token: ${{ secrets.GITHUB_TOKEN }}
+              publish_dir: ./dist # Or your Astro output directory if different
