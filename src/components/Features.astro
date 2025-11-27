@@ -1,123 +1,126 @@
 ---
+const features = [
+  {
+    title: "3D Model Viewer",
+    description: "View and interact with 3D models in real-time with advanced WebGL rendering",
+    color: "from-orange-600 to-orange-700",
+    available: true,
+    icon: "box"
+  },
+  {
+    title: "Annotations & Hotspots",
+    description: "Add interactive hotspots and annotations directly on your 3D models",
+    color: "from-blue-600 to-blue-700",
+    icon: "map-pin"
+  },
+  {
+    title: "Shareable Links",
+    description: "Generate unique links to share your 3D models with anyone, anywhere",
+    color: "from-purple-600 to-purple-700",
+    icon: "share"
+  },
+  {
+    title: "Comments & Feedback",
+    description: "Enable contextual comments and feedback with hotspot location tracking",
+    color: "from-green-600 to-green-700",
+    icon: "message"
+  },
+  {
+    title: "AI Comment Summarizer",
+    description: "Automatically summarize feedback and comments using advanced AI",
+    color: "from-pink-600 to-pink-700",
+    icon: "sparkles"
+  },
+  {
+    title: "And More...",
+    description: "Many more exciting features coming soon to revolutionize your workflow",
+    color: "from-yellow-600 to-yellow-700",
+    icon: "zap"
+  }
+];
 ---
 
-<section id="features" class="features">
-    <div class="container">
-        <svg width="0" height="0" style="position: absolute;">
-            <defs>
-                <linearGradient id="iconGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
-                    <stop offset="100%" style="stop-color:#c2410c;stop-opacity:1" />
-                </linearGradient>
-            </defs>
-        </svg>
-        <h2 class="section-title">Key Domains</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                        <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                        <path d="M2 17l10 5 10-5"/>
-                        <path d="M2 12l10 5 10-5"/>
-                    </svg>
-                </div>
-                <h3>3D</h3>
-                <p>Advanced 3D visualization & collaboration tools for immersive experiences</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                        <path d="M12 2a10 10 0 100 20 10 10 0 000-20z"/>
-                        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/>
-                        <circle cx="12" cy="17" r="0.5" fill="url(#iconGradient)"/>
-                        <circle cx="12" cy="12" r="1" fill="none"/>
-                        <path d="M8 8l8 8M16 8l-8 8"/>
-                    </svg>
-                </div>
-                <h3>Artificial Intelligence</h3>
-                <p>Intelligent AI automation and machine learning capabilities</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
-                        <rect x="2" y="3" width="20" height="14" rx="2"/>
-                        <path d="M8 21h8"/>
-                        <path d="M12 17v4"/>
-                        <path d="M7 8h10M7 12h10"/>
-                    </svg>
-                </div>
-                <h3>Web First</h3>
-                <p>Modern web technologies for seamless cross-platform integration</p>
-            </div>
-        </div>
+ <!-- Features Showcase -->
+<div class="mb-12 sm:mb-16">
+    <div class="text-center mb-8 sm:mb-12">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-3 sm:mb-4">
+        Powerful Features
+    </h2>
+    <p class="text-gray-400 text-base sm:text-lg px-4">
+        Everything you need to manage and collaborate on 3D models
+    </p>
     </div>
-</section>
 
-<style>
-    .features {
-        padding: 6rem 0;
-        background: var(--bg-secondary);
-    }
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+    {features.map((feature) => (
+        <div class="group bg-zinc-950 border border-orange-900/40 rounded-xl p-6 hover:border-orange-600/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+        <!-- Available/Coming Soon Badge -->
+        {feature.available ? (
+            <div class="absolute top-4 right-4">
+            <div class="flex items-center gap-1 px-2 py-1 bg-green-600/20 border border-green-600/30 rounded-full">
+                <svg class="w-3 h-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <span class="text-green-500 text-xs font-semibold">Available</span>
+            </div>
+            </div>
+        ) : (
+            <div class="absolute top-4 right-4">
+            <div class="flex items-center gap-1 px-2.5 py-1 bg-orange-600/20 border border-orange-600/30 rounded-full">
+                <svg class="w-3 h-3 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                </svg>
+                <span class="text-orange-500 text-xs font-semibold">Coming Soon</span>
+            </div>
+            </div>
+        )}
+        
+        <!-- Gradient Glow Effect -->
+        <div class={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}></div>
+        
+        <div class={`w-14 h-14 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl transition-shadow`}>
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {feature.icon === 'box' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>}
+            {feature.icon === 'map-pin' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>}
+            {feature.icon === 'share' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>}
+            {feature.icon === 'message' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>}
+            {feature.icon === 'sparkles' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>}
+            {feature.icon === 'zap' && <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>}
+            </svg>
+        </div>
+        
+        <h3 class="text-xl font-semibold text-white mb-2 group-hover:text-orange-500 transition-colors">
+            {feature.title}
+        </h3>
+        <p class="text-gray-400 text-sm leading-relaxed">
+            {feature.description}
+        </p>
+        </div>
+    ))}
+    </div>
+</div>
 
-    .features-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
-    }
-
-    .feature-card {
-        padding: 2.5rem;
-        background: var(--bg-tertiary);
-        border-radius: 1rem;
-        border: 1px solid rgba(255, 255, 255, 0.05);
-        transition: transform 0.3s ease, border-color 0.3s ease;
-        text-align: center;
-    }
-
-    .feature-card:hover {
-        transform: translateY(-5px);
-        border-color: rgba(249, 115, 22, 0.5);
-    }
-
-    .feature-icon {
-        width: 3.5rem;
-        height: 3.5rem;
-        margin: 0 auto 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .feature-icon svg {
-        width: 100%;
-        height: 100%;
-        stroke: url(#iconGradient);
-    }
-
-    .feature-icon svg path,
-    .feature-icon svg circle,
-    .feature-icon svg rect {
-        stroke: url(#iconGradient);
-    }
-
-    .feature-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        background: var(--gradient);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
-    }
-
-    .feature-card p {
-        color: var(--text-secondary);
-        line-height: 1.8;
-    }
-
-    @media (max-width: 968px) {
-        .features-grid {
-            grid-template-columns: 1fr;
-        }
-    }
-</style>
-
+<!-- CTA Section -->
+<div class="bg-gradient-to-br from-orange-600/10 to-purple-600/10 border border-orange-900/40 rounded-2xl mb-[10vh] p-6 sm:p-12 text-center backdrop-blur-sm">
+    <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
+    Try the 3D Viewer Now
+    </h3>
+    <p class="text-gray-400 text-sm sm:text-base mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
+    While we're building the full platform, you can already experience our powerful 3D model viewer. 
+    Upload and view your models in stunning detail.
+    </p>
+    <div class="flex flex-col gap-3 sm:gap-4 justify-center max-w-md mx-auto">
+    <a href="#" class="w-full inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white font-medium px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base rounded-md transition-colors">
+        <svg class="w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+        </svg>
+        Launch Viewer
+    </a>
+    <a href="#" class="w-full inline-flex items-center justify-center gap-2 border border-orange-900/40 hover:bg-zinc-900 text-gray-300 px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base rounded-md transition-colors">
+        <svg class="w-4 sm:w-5 h-4 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+        </svg>
+        Signup
+    </a>
+    </div>
+</div>
