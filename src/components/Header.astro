@@ -1,92 +1,23 @@
 ---
 ---
 
-<nav class="navbar">
-    <div class="container">
-        <div class="nav-content">
-            <a href="/" class="logo">
-                <img class="logo-icon" src={`/favicon.png`}/>
-                <span class="logo-gradient">ThreeVertex</span>
-            </a>
-            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <div class="mobile-overlay" id="mobileOverlay"></div>
-            <div class="nav-links" id="navLinks">
-                <a href="/#features" class="nav-link">Features</a>
-                <a href="/about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="5"/>
-                        <line x1="12" y1="1" x2="12" y2="3"/>
-                        <line x1="12" y1="21" x2="12" y2="23"/>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-                        <line x1="1" y1="12" x2="3" y2="12"/>
-                        <line x1="21" y1="12" x2="23" y2="12"/>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                    </svg>
-                    <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-                    </svg>
-                </button>
-                <a href="#" class="btn-primary">Get Started</a>
-            </div>
-        </div>
+<nav class="border-b border-orange-900/30 bg-zinc-950/80 backdrop-blur-lg relative z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 sm:gap-3 cursor-pointer">
+        <img class="logo-icon" src={`/favicon.png`}/>
+        <span class="text-orange-500 font-semibold text-base sm:text-xl logo-gradient">ThreeVertex</span>
+    </a>
+    
+    <div class="flex items-center gap-2 sm:gap-4">
+        <a href="#" class="inline-flex items-center gap-1 sm:gap-2 border border-orange-900/40 hover:bg-zinc-900 text-gray-300 text-xs sm:text-sm h-8 sm:h-10 px-2 sm:px-4 rounded-md transition-colors">
+        <span class="hidden sm:inline">Open</span> Viewer
+        </a>
+        <a href="#" class="inline-flex items-center gap-1 sm:gap-2 bg-orange-600 hover:bg-orange-700 text-white text-xs sm:text-sm h-8 sm:h-10 px-2 sm:px-4 rounded-md transition-colors">
+        <span>Signup</span>
+        </a>
+    </div>
     </div>
 </nav>
-
-<script>
-    const mobileToggle = document.getElementById('mobileToggle');
-    const navLinks = document.getElementById('navLinks');
-    const mobileOverlay = document.getElementById('mobileOverlay');
-    const themeToggle = document.getElementById('themeToggle');
-
-    function toggleMenu() {
-        mobileToggle?.classList.toggle('active');
-        navLinks?.classList.toggle('active');
-        mobileOverlay?.classList.toggle('active');
-        document.body.style.overflow = navLinks?.classList.contains('active') ? 'hidden' : '';
-    }
-
-    function closeMenu() {
-        mobileToggle?.classList.remove('active');
-        navLinks?.classList.remove('active');
-        mobileOverlay?.classList.remove('active');
-        document.body.style.overflow = '';
-    }
-
-    // Theme Toggle
-    function setTheme(theme: string) {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-    }
-
-    function toggleTheme() {
-        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        setTheme(newTheme);
-    }
-
-    // Initialize theme
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
-
-    mobileToggle?.addEventListener('click', toggleMenu);
-    themeToggle?.addEventListener('click', toggleTheme);
-
-    // Close menu when clicking on a link
-    navLinks?.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-    });
-
-    // Close menu when clicking overlay
-    mobileOverlay?.addEventListener('click', closeMenu);
-</script>
 
 <style>
     .navbar {
