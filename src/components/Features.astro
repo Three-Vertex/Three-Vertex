@@ -5,7 +5,8 @@ const features = [
     description: "View and interact with 3D models in real-time with advanced WebGL rendering",
     color: "from-orange-600 to-orange-700",
     available: true,
-    icon: "box"
+    icon: "box",
+    link: 'https://spaces.threevertex.co/viewer'
   },
   {
     title: "Annotations & Hotspots",
@@ -52,8 +53,8 @@ const features = [
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-    {features.map((feature) => (
-        <div class="group bg-zinc-950 border border-orange-900/40 rounded-xl p-6 hover:border-orange-600/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden">
+    {features.map((feature, i) => (
+        <div id="available" class="group bg-zinc-950 border border-orange-900/40 rounded-xl p-6 hover:border-orange-600/60 transition-all duration-300 hover:transform hover:scale-105 relative overflow-hidden cursor-pointer">
         <!-- Available/Coming Soon Badge -->
         {feature.available ? (
             <div class="absolute top-4 right-4">
@@ -124,3 +125,15 @@ const features = [
     </a>
     </div>
 </div>
+
+<script>
+  const navigateTo = (url: string | undefined) => {
+    if(!url) return;
+    window.location.assign(url);
+  }
+
+  //TODO: Make is generic for all features
+  const viewerBtn = document.getElementById('available');
+  viewerBtn?.addEventListener('click', () => navigateTo('https://spaces.threevertex.co/viewer'));
+  
+</script>
