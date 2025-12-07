@@ -30,14 +30,19 @@
     <div class="max-w-2xl mx-auto mb-[20vh] sm:mb-[30vh]">
         <div class="bg-zinc-950 border border-orange-900/40 rounded-2xl p-6 sm:p-10 shadow-2xl shadow-orange-600/10 backdrop-blur-sm">
         <h3 class="text-white font-semibold text-xl sm:text-2xl mb-4 sm:mb-6 text-center">Get Early Access</h3>
+        <h5 class="text-green-600 text-center mb-1 hidden" id="emailSuccess">yoohoo!! Email Registered!!</h5>
+        <h5 class="text-red-600 text-center mb-1 hidden" id="emailError">Error occurred. Please try again later</h5>
+         <h5 class="text-orange-600 text-center mb-1 hidden" id="emailLoading">Collaborating your email with us...</h5>
         <form class="flex flex-col gap-3 sm:gap-4 max-w-xl mx-auto">
             <input 
             type="email"
+            id="emailInput"
             placeholder="Enter your email address"
             class="w-full bg-zinc-900 border border-orange-900/40 text-white placeholder:text-gray-500 h-12 sm:h-14 text-sm sm:text-base px-4 sm:px-6 rounded-md focus:outline-none focus:border-orange-600"
             />
             <button 
-            type="submit"
+            id="submitBtn"
+            type="button"
             class="w-full bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white font-medium px-6 sm:px-8 h-12 sm:h-14 text-sm sm:text-base shadow-lg shadow-orange-600/30 rounded-md transition-all inline-flex items-center justify-center gap-2"
             >
             Join Waitlist
@@ -52,3 +57,46 @@
         </div>
     </div>
 </div>
+
+<script>
+    import axios from 'axios';
+
+    const submitBtn = document.getElementById('submitBtn');
+    const emailSuccess = document.getElementById('emailSuccess');
+    const emailError = document.getElementById('emailError');
+    const emailLoading = document.getElementById('emailLoading');
+    const emailInput: HTMLInputElement = document.getElementById('emailInput') as HTMLInputElement;
+
+    const submitForm = async () => {
+        const value = emailInput.value;
+        if(!value) return;
+
+        emailLoading?.classList.remove('hidden');
+        const body = {
+            fields:[
+                {
+                    objectTypeId: "0-1",
+                    name: "email",
+                    value
+                }
+            ],
+            context: {
+                pageName: "ThreeVertex",
+                pageUri: "https://www.threevertex.co"
+            }
+        };
+        try{
+            const response = axios.post('https://api.hsforms.com/submissions/v3/integration/submit/244539902/ef8f36ae-403f-48d3-baa3-a2668e141591', body);
+            emailLoading?.classList.add('hidden');
+            emailSuccess?.classList.remove('hidden');
+            emailInput.value = '';
+        }
+        catch(error: any){
+            emailLoading?.classList.add('hidden');
+            emailError?.classList.remove('hidden');
+            console.log(error.message);
+        }
+    }
+
+    submitBtn?.addEventListener('click', submitForm);
+</script>
