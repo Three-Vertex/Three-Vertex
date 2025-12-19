@@ -6,9 +6,11 @@ import Background from '../components/Background.astro';
 interface Props {
     title: string;
     description?: string;
+    canonical?: string;
 }
 
-const { title, description = "A powerful 3D-based project tool for modern creators" } = Astro.props;
+const { title, description = "A powerful 3D-based project tool for modern creators",
+        canonical = "https://threevertex.co/"} = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -18,8 +20,28 @@ const { title, description = "A powerful 3D-based project tool for modern creato
     <link rel="icon" type="image/svg+xml" href={`/favicon.png`} />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+
+    <meta name="robots" content="index, follow" />
+    
     <title>{title}</title>
     <meta name="description" content={description} />
+
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "ThreeVertex",
+        "url": "https://threevertex.co/",
+        "description": "A powerful 3D-based project tool for modern creators"
+    }
+    </script>
+    
      <style is:global>
         @keyframes mesh-float {
             0%, 100% { transform: translate(0, 0); }

@@ -6,7 +6,17 @@ import Features from '../components/Features.astro';
 import About from '../components/About.astro';
 ---
 
-<Layout title="ThreeVertex - 3D Collaboration">
+const seo = {
+    title: "ThreeVertex - 3D Collaboration">
+    description: "Collaborate on 3D models in real time using ThreeVertex."
+    canonical: "https://threevertex.co/"
+};
+
+<Layout 
+    title={seo.title}
+    description={seo.description}
+    canonical={seo.canonical} >
+
     <Hero />
     <Features />
     <EditorShowcase/>
