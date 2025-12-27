@@ -1,14 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const seo = {
+    title: "About",
+    description: "Learn more about Template and our Mission",
+    canonical: "https://threevertex.co/about",
+};
 ---
 
-<Layout title="About - Template" description="Learn more about Template and our mission">
+<Layout
+    title={seo.title}
+    description={seo.description}
+    canonical={seo.canonical} >
+
     <section class="page-section">
         <div class="container">
-            <h1 class="page-title">About <span class="gradient-text">Template</span></h1>
+            <h1 class="page-title">About <span class="gradient-text">ThreeVertex</span></h1>
             <div class="content">
                 <p>
-                    Template is a cutting-edge 3D project tool designed to empower creators 
+                    ThreeVertex is a cutting-edge 3D project tool designed to empower creators 
                     with intuitive controls and powerful features.
                 </p>
                 <p>
